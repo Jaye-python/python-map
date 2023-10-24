@@ -82,7 +82,7 @@ http://127.0.0.1:8000
 ```
 jupyter notebook
 ```
-19. To send a sample payload to the websocket via the opened Jupyter notebook, **run the first cell**, then **run the second cell**
+19. To send a sample payload to the websocket via the opened Jupyter notebook, **update the PROJECTPATH** variable in the first cell, **then run the first cell**, then **run the second cell**
 20. Go to the **Daily Reading** link to see an interactive map
 21. Click on the `Click for latest data` button to get the latest data for all sensors
 22. Go to the **Historical Reading** link, click on **Submit** to get the historical reading for `Temperature` for `Sensor 8`. You may use the form to get data for other sensors
