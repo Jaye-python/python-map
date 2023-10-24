@@ -50,11 +50,11 @@ export DATABASE_NAME='your-db-name'
 export DATABASE_USER='your-db-username'
 export DATABASE_PASS='your-db-password'
 ```
-11. Deactivate the environment and reactivate it to load your changes (edit file path accordingly)
+11. You may deactivate the virtual environment
 ```
 deactivate
 ```
-12. Open this folder in VS Code (or your preferred editor). **note the trailing point**
+12. Now, open this folder in VS Code (or your preferred editor). **note the trailing point**
 ```
 code .
 ```
@@ -70,7 +70,7 @@ python manage.py migrate
 ```
 python manage.py loaddata data.json
 ```
-16. Launch
+16. Launch the app
 ```
 python manage.py runserver
 ```
@@ -82,10 +82,10 @@ http://127.0.0.1:8000
 ```
 jupyter notebook
 ```
-19. To send a sample payload to the websocket via the opened Jupyter notebook, **update the PROJECTPATH** variable in the first cell, **then run the first cell**, then **run the second cell**
-20. Go to the **Daily Reading** link to see an interactive map
-21. Click on the `Click for latest data` button to get the latest data for all sensors
-22. Go to the **Historical Reading** link, click on **Submit** to get the historical reading for `Temperature` for `Sensor 8`. You may use the form to get data for other sensors
-23. Go to the **Live Signal** link to get live signals that gets updated every 10 seconds
+19. To send a sample payload to the websocket via the opened Jupyter notebook: update the **PROJECTPATH** variable in the first cell to your correct path, **then run the first cell**, then **run the second cell**
+20. In the app (from your browser), go to the **Daily Reading** link to see an interactive map
+21. In the app, click on the `Click for latest data` button to get the latest data for all sensors
+22. In the app, go to the **Historical Reading** link, click on **Submit** to get the historical reading for `Temperature` for `Sensor 8`. You may use the form to get data for other sensors
+23. In the app, go to the **Live Signal** link to get live signals that gets updated every 10 seconds
 24. Go to the `map/static/map/mains.js` file to see sample JavaScript code to send to the websocket
 
