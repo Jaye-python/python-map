@@ -51,6 +51,13 @@ export DATABASE_NAME='your-db-name'
 export DATABASE_USER='your-db-username'
 export DATABASE_PASS='your-db-password'
 ```
+12. Deactivate the environment and reactivate it to load your changes
+```
+deactivate
+```
+```
+source venv/bin/activate
+```
 11. Migrate
 ```
 python manage.py migrate
