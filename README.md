@@ -22,9 +22,9 @@ mkdir usecase
 ```
 cd usecase
 ```
-4. Create a new Python Virtual environment in the `usecase` folder. **Please notice the trailing point**
+4. Create a new Python Virtual environment in the `usecase` folder.
 ```
-python3 -m venv ./venv .
+python3 -m venv ./venv
 ```
 5. Activate this new virtual environment
 ```
