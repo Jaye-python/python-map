@@ -42,7 +42,8 @@ cd python-map
 ```
 pip install -r pdo_project/requirements/base.txt
 ```
-9. Create your DB. Input the following environment variables in your environment file
+9. Create your Database
+10. Input the following environment variables in your environment file. Your `environment` file is the `\usecase\venv\bin\activate` (for Linux OS)
 ```
 export IS_LOCAL=True
 export SECRET_KEY='mydjango-secure-az&m%41ft*^47trh@m2ppc&ywxx@rf#d82lv^z11-)6(ug#ua0'
@@ -50,19 +51,19 @@ export DATABASE_NAME='your-db-name'
 export DATABASE_USER='your-db-username'
 export DATABASE_PASS='your-db-password'
 ```
-10. Migrate
+11. Migrate
 ```
 python manage.py migrate
 ```
-11. Run code below to seed the DB with seed data located in: `map/fixtures/data.json`:
+12. Run code below to seed the DB with seed data located in: `map/fixtures/data.json`:
 ```
 python manage.py loaddata data.json
 ```
-12. Launch
+13. Launch
 ```
 python manage.py runserver
 ```
-13. Navigate to the app
+14. Navigate to the app
 ```
 http://127.0.0.1:8000
 ```
