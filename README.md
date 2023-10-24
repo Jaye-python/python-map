@@ -5,8 +5,7 @@
 2. **Folium** was used to build the interactive map to display surfaces and satellite imagery of the industrial site's geographical data
 3. **Django-Channels** was used to built a **websocket** to receive real-time data containing temperature, pressure, and steam injection readings from sensors located at various points within the industrial site
 4. **Folium Heatmap plugin** was used to generate heatmaps from sensors
-5. To implement **real-time update of heatmaps**: the received data from the websocket is saved to the DB then a webpage that serves heatmaps is being refreshed every 10 seconds with **JavaScript** to show the latest data from the DB
-
+5. To implement **real-time update of heatmaps**: the received data from the websocket is saved to the DB then a webpage that serves heatmaps is being refreshed every 10 seconds (using **JavaScript**) to show the latest data from the DB
 
 
 ### To launch this app on your system:
@@ -43,7 +42,7 @@ cd python-map
 pip install -r pdo_project/requirements/base.txt
 ```
 9. Create your Database
-10. Input the following environment variables in your environment file. Your `environment` file is the `\usecase\venv\bin\activate` (for Linux OS)
+10. Input the following environment variables in your environment file. Your `environment` file is the `\usecase\venv\bin\activate` (for Linux OS). Only change values for `'your-db-name'`, `'your-db-username'`, `'your-db-password'`
 ```
 export IS_LOCAL=True
 export SECRET_KEY='mydjango-secure-az&m%41ft*^47trh@m2ppc&ywxx@rf#d82lv^z11-)6(ug#ua0'
@@ -51,28 +50,42 @@ export DATABASE_NAME='your-db-name'
 export DATABASE_USER='your-db-username'
 export DATABASE_PASS='your-db-password'
 ```
-12. Deactivate the environment and reactivate it to load your changes
+11. Deactivate the environment and reactivate it to load your changes (edit file path accordingly)
 ```
 deactivate
 ```
+12. Open this folder in VS Code (or your preferred editor). **note the trailing point**
 ```
-source venv/bin/activate
+code .
 ```
-11. Migrate
+13. Open a new VS Code terminal and activate your environment (if not activated)
+```
+source ~/Desktop/usecase/venv/bin/activate
+```
+14. Run migrate code that will create all required database tables
 ```
 python manage.py migrate
 ```
-12. Run code below to seed the DB with seed data located in: `map/fixtures/data.json`:
+15. Run code below to seed the DB with seed data located in: `map/fixtures/data.json`:
 ```
 python manage.py loaddata data.json
 ```
-13. Launch
+16. Launch
 ```
 python manage.py runserver
 ```
-14. Navigate to the app
+17. Navigate to the app
 ```
 http://127.0.0.1:8000
 ```
-
+18. To run the Jupyter notebook, **Open a new terminal** while the app is running and **run below code**. Then open the `pdo.ipynb` file
+```
+jupyter notebook
+```
+19. To send a sample payload to the websocket via the opened Jupyter notebook, **run the first cell**, then **run the second cell**
+20. Go to the **Daily Reading** link to see an interactive map
+21. Click on the `Click for latest data` button to get the latest data for all sensors
+22. Go to the **Historical Reading** link, click on **Submit** to get the historical reading for `Temperature` for `Sensor 8`. You may use the form to get data for other sensors
+23. Go to the **Live Signal** link to get live signals that gets updated every 10 seconds
+24. Go to the `map/static/map/mains.js` file to see sample JavaScript code to send to the websocket
 
