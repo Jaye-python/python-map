@@ -1,0 +1,8 @@
+sensor,longitude,latitude,color,temperature,pressure,steam_injection
+muscat_blue1,41.3102778,-72.3825,blue,25.5,17.5,10.5
+muscat_blue2,41.143125,-73.264511,blue,24.5,13.5,13.4
+muscat_blue3,41.525611,-72.0741188,blue,20.4,12.2,11.5
+muscat_blue4,41.929342,-72.670609,blue,22.5,14.1,11.8
+muscat_blue5,41.811817,-72.261825,blue,18.5,18.9,16.5
+muscat_blue6,41.263416,-72.560456,blue,11.5,19.7,17.8
+muscat_blue7,41.649365,-72.770648,blue,15.6,20.6,25.9

@@ -1,0 +1,70 @@
+{% extends 'map/base.html' %}
+
+
+{% block title %}
+<title>Map Home</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container text-center mt-4">
+
+  <div class="row justify-content-center">
+    <div class="col-md-12 d-flex justify-content-between">
+      <span><p class="display-6 text-primary">Industrial Site Geospatial Data</p></span>
+      <span><a class="btn btn-primary shadow" href="{% url 'map:livedata' 'live' %}">
+        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        Click for Latest Data</a></span>
+    </div>
+  </div> <!-- row -->
+ 
+ <hr>
+
+<div class="row d-flex mt-5 justify-content-center p-1 bg-light">
+  <div class="col-md-4 border bg-white shadow-sm m-2">
+    <legend class="text-muted"> <small>Please pick date to get readings</small> </legend>
+        <form action="{% url 'map:home' %}" method="GET">
+          <div class="form-group row">
+            <label class="col-md-4 col-form-label" for="day">Day</label>
+            <div class="col-md-8">
+          <input type="date" class="form-control shadow-sm" name="day" id="day" required>
+          {% if no_reading_message_to_client %}
+          <span class="help-block sm text-primary mt-2"><small>{{no_reading_message_to_client}}</small></span>
+{% endif %}
+          </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-6 col-form-label" for="aggregation">Aggregation</label>
+            <div class="col-sm-6">
+                <select class="custom-select shadow-sm mt-2" name="aggregation" id="aggregation" required>
+                    <option value="average">Average</option>
+                    <option value="maximum">Maximum</option>
+                    
+                </select>
+          </div>
+          </div>
+            <input type="submit" class="btn btn-sm shadow-sm btn-primary my-2" value="Submit">
+        </form>
+        </div>
+</div> <!-- row -->
+  
+<div class="row justify-content-center">
+<div class="col-md-12 shadow-lg border border-info rounded p-4 m-4">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item d-flex justify-content-between shadow"> <span class="text-primary"><small><strong>INDUSTRIAL SITE</strong></small>
+        </span>
+        <span>
+          <i class="bi bi-geo-alt-fill text-primary" style="font-size: 1.5rem;"></i>
+        </span>
+      </li>
+      <li class="list-group-item">
+        {{ map|safe}}
+      </li>
+    </ul>
+</div>
+</div> <!-- row -->
+
+ </div> <!-- main container -->
+
+{% endblock %}

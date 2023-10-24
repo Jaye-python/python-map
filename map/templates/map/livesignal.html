@@ -1,0 +1,80 @@
+{% extends 'map/base.html' %}
+
+
+{% block title %}
+<title>Map Home</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container text-center mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-12 d-flex justify-content-between">
+      <span><p class="display-6 text-primary">Industrial Site Live Data</p></span>
+      <span>
+        <p>Last Update:
+          <span id="latest"></span> | Updates in <span id="countdown"></span> seconds <span class="spinner-grow spinner-grow text-warning" role="status" aria-hidden="true"></span></p>
+
+      </span>
+
+    </div>
+  </div> <!-- row -->
+  <hr>
+
+<div class="row justify-content-center">
+<div class="col-md-12 shadow-lg border border-info rounded p-4 m-4">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item d-flex justify-content-between shadow"> <span class="text-primary"><small><strong>INDUSTRIAL SITE</strong></small>
+        </span>
+  
+        <span>
+          <i class="bi bi-geo-alt-fill text-primary" style="font-size: 1.5rem;"></i>
+        </span>
+      </li>
+      <li class="list-group-item">
+        {{ map|safe}}
+      </li>
+    </ul>
+</div>
+</div> <!-- row -->
+
+</div> <!-- main container -->
+
+<script>
+  // Here I get the `latest` and `countdown` `<div>` elements.
+    const latestDiv = document.getElementById('latest');
+    const countdownDiv = document.getElementById('countdown');
+    
+    // Here I set the initial update time.
+    let lastUpdateTime = new Date();
+    
+    // Here I define a function to update the countdown and reload the page.
+    function updateCountdownAndReload() {
+
+      // Here I calculate the time until the next update. I set this to 10 seconds but this can be changed
+      const nextUpdateTime = new Date(lastUpdateTime.getTime() + 10000);
+      const now = new Date();
+      const countdown = Math.floor((nextUpdateTime.getTime() - now.getTime()) / 1000);
+    
+      //Here I update the `countdown` `<span>` element.
+      countdownDiv.innerHTML = countdown.toString();
+    
+      // If the countdown is less than or equal to zero, reload the page.
+      if (countdown <= 0) {
+        window.location.reload();
+      }
+    }
+
+    
+
+
+    
+    // Here I start the countdown.
+    setInterval(updateCountdownAndReload, 1000);
+    
+    // Here I send the last update time to the `latest` `<span>` element.
+    latestDiv.innerHTML = lastUpdateTime.toLocaleString();
+  </script>
+
+
+{% endblock %}

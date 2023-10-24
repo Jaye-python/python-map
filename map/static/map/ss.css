@@ -1,0 +1,24 @@
+body {
+    /* font-family: Inter,OpenSans,Helvetica,Arial,sans-serif; */
+    /* font-family: 'Open Sans', sans-serif;*/
+    font-family: "Roboto", Corbel, Avenir, "Lucida Grande", "Lucida Sans", sans-serif;
+    /* font-size: 12px; */
+    font-size: 0.9rem;
+    /* line-height: 1em; */
+    color: #3F3F42;
+    /* min-height: 75rem; */
+  }
+
+@media (min-width: 768px) {
+.navbar-nav {
+float:none;
+margin:0 auto;
+display: block;
+text-align: center;
+}
+
+.navbar-nav > li {
+display: inline-block;
+float:none;
+}
+}

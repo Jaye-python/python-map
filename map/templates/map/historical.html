@@ -1,0 +1,79 @@
+{% extends 'map/base.html' %}
+
+{% block title %}
+<title>Historical</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container text-center mt-4">
+
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <p class="display-6 text-primary">Industrial Site Geospatial Historical Data</p> 
+    </div>
+
+  </div> <!-- row -->
+ 
+<hr>
+
+<div class="row d-flex mt-5 justify-content-center p-1 bg-light">
+  <div class="col-md-4 border bg-white shadow-sm m-2">
+    <legend class="text-muted"> <small>Please pick sensor and reading</small> </legend>
+        <form action="{% url 'map:historical' %}" method="GET">
+          <div class="form-group row">
+            <label class="col-sm-6 col-form-label" for="sensor">Sensor</label>
+            <div class="col-sm-6">
+                <select class="custom-select shadow-sm mt-2" name="sensor" id="sensor" required>
+                    <option value="sensor_8">Sensor 8</option>
+                    <option value="sensor_9">Sensor 9</option>
+                    <option value="sensor_10">Sensor 10</option>
+                    <option value="sensor_11">Sensor 11</option>
+                    <option value="sensor_12">Sensor 12</option>
+                    <option value="sensor_13">Sensor 13</option>
+                    <option value="sensor_14">Sensor 14</option>
+                </select>
+          </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-6 col-form-label" for="reading">Reading</label>
+            <div class="col-sm-6">
+                <select class="custom-select shadow-sm mt-2" name="reading" id="reading" required>
+                    <option value="temperature">Temperature</option>
+                    <option value="pressure">Pressure</option>
+                    <option value="steam_injection">Steam Injection</option>
+                    
+                </select>
+          </div>
+          </div>
+            <input type="submit" class="btn btn-sm shadow-sm btn-success my-2" value="Submit">
+        </form>
+        {% if no_reading_message_to_client %}
+        <p class="display-6 text-primary">
+          {{no_reading_message_to_client}}</p>
+{% endif %}
+        </div>
+</div> <!-- row -->
+  
+<div class="row justify-content-center">
+<div class="col-md-12 shadow-lg border border-info rounded p-4 m-4">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item d-flex justify-content-between shadow"> <span class="text-primary"><small><strong>INDUSTRIAL SITE</strong></small>
+        </span>
+  
+        <span>
+          <i class="bi bi-geo-alt-fill text-primary" style="font-size: 1.5rem;"></i>
+        </span>
+      </li>
+      <li class="list-group-item">
+        {{ map|safe}}
+      </li>
+    </ul>
+</div>
+
+</div> <!-- row -->
+
+</div> <!-- main container -->
+
+{% endblock %}
