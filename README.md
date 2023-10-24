@@ -78,7 +78,7 @@ python manage.py runserver
 ```
 http://127.0.0.1:8000
 ```
-18. To run the Jupyter notebook, **Open a new terminal** while the app is running and **run below code**. Click the URL provided: `http://localhost:8888/tree?token=b9b1fe9bfadf347146e04b203631ddfce3005033bfeb46f4`; then open the `pdo.ipynb` file
+18. To run the Jupyter notebook, **Open a new terminal** while the app is running and **run below code**. Click the URL provided which looks like this: `http://localhost:8888/tree?token=b9b1fe9bfadf347146e04b203631ddfce3005033bfeb46f4`; then open the `pdo.ipynb` file
 ```
 jupyter notebook
 ```
