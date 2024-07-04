@@ -1,5 +1,5 @@
 # Python-Map-Application Based on Folium
-This app is a geo-spatial app showing coordinates of a site with several points where heat sensors are placed which show readings in real-time via heat maps so that important information about those sensors get flagged in realtime
+This app is a geo-spatial data visualization app showing coordinates of a site with several points where heat sensors are placed which show readings in real-time via heat maps so that important information about those sensors get flagged in realtime on a map
 
 ### Logic implemented:
 1. **Django** was used as backend
